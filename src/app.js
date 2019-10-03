@@ -1,10 +1,13 @@
 const express = require('express');
+const path = require('path');
+
+console.log(__dirname);
+console.log(__filename);
 
 const app = express();
+const publicDirectoryPath = path.join(__dirname, '../public');
 
-app.get('', (req, res) => {
-    res.send('<h1>Weather</h1>');
-});
+app.use(express.static(publicDirectoryPath));
 
 app.get('/help', (req, res) => {
     res.send([
@@ -18,14 +21,6 @@ app.get('/help', (req, res) => {
         }
     ]);
 });
-
-// 
-// Goal: Update routes
-// 
-// 1. Setup about route to render a title with HTML
-// 2. Setup a weather route to send back JSON
-//    - Object with forecast and location strings
-// 3. Test your work by visiting both in the browser
 
 app.get('/about', (req, res) => {
     res.send('<h1>About</h1>');
