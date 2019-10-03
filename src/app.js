@@ -3,11 +3,20 @@ const express = require('express');
 const app = express();
 
 app.get('', (req, res) => {
-    res.send('Hello express');
+    res.send('<h1>Weather</h1>');
 });
 
 app.get('/help', (req, res) => {
-    res.send('Help page');
+    res.send([
+        {
+            name: 'Benson',
+            age: 25,
+        }, 
+        {
+            name: 'Rebecca',
+            age: 29,
+        }
+    ]);
 });
 
 // 
