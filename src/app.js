@@ -6,25 +6,20 @@ console.log(__filename);
 
 const app = express();
 const publicDirectoryPath = path.join(__dirname, '../public');
+const aboutPath = path.join(__dirname, '../public/about.html');
+const helpPath = path.join(__dirname, '../public/help.html');
 
 app.use(express.static(publicDirectoryPath));
+app.use(express.static(aboutPath));
+app.use(express.static(helpPath));
 
-app.get('/help', (req, res) => {
-    res.send([
-        {
-            name: 'Benson',
-            age: 25,
-        }, 
-        {
-            name: 'Rebecca',
-            age: 29,
-        }
-    ]);
-});
-
-app.get('/about', (req, res) => {
-    res.send('<h1>About</h1>');
-});
+// 
+// Goal: Create two more HTML files
+// 
+// 1. Create a html page for about with "About" title
+// 2. Create a html page for help with "Help" title
+// 3. Remove the old route handlers for both
+// 4. Visit both in the browser to test your work
 
 app.get('/weather', (req, res) => {
     res.send({
