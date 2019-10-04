@@ -2,6 +2,13 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 
+// 
+// Goal: Create a partial for the footer
+// 
+// 1. Setup the template for the footer partial "Created by Some Name"
+// 2. Render the partial at the bottom of all three pages
+// 3. Test your work by visiting all three pages
+
 const app = express();
 
 // Define paths for Express config
